@@ -46,7 +46,7 @@ class UI {
         // Insert Message in the UI
         container.insertBefore(div, app);
         // Remove the Message after 3 seconds
-        setTimeout(function () {
+        setTimeout(function() {
             document.querySelector('.alert').remove();
         }, 3000);
     }
@@ -54,13 +54,13 @@ class UI {
 
 // DOM Events
 document.getElementById('product-form')
-    .addEventListener('submit', function (e) {
+    .addEventListener('submit', function(e) {
 
         const name = document.getElementById('name').value,
             price = document.getElementById('price').value,
             year = document.getElementById('year').value;
 
-        // Create a new Oject Product
+        // Create a new Object Product
         const product = new Product(name, price, year);
 
         // Create a new UI
@@ -68,19 +68,19 @@ document.getElementById('product-form')
 
         // Input User Validation
         if (name === '' || price === '' || year === '') {
-            ui.showMessage('Please Insert data in all fields', 'danger');
+            ui.showMessage('Por favor insertar datos en todos los campos', 'danger');
         }
 
         // Save Product
         ui.addProduct(product);
-        ui.showMessage('Product Added Successfully', 'success');
+        ui.showMessage('Producto agregado correctamente', 'success');
         ui.resetForm();
 
         e.preventDefault();
     });
 
 document.getElementById('product-list')
-    .addEventListener('click', function (e) {
+    .addEventListener('click', function(e) {
         const ui = new UI();
         ui.deleteProduct(e.target);
         e.preventDefault();
